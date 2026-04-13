@@ -1,0 +1,33 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/docker-in-docker
+{
+	"name": "Java 25 Dev Container",
+	"image": "mcr.microsoft.com/devcontainers/java:25",
+	"forwardPorts": [8080],
+
+    // Environment variables
+        // Initialize command to create empty .env-vaadin if it doesn't exist
+//    "initializeCommand": "touch ./.devcontainer/.env-vaadin",
+//  "runArgs": ["--env-file","./.devcontainer/.env-vaadin"],
+
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                    "vscjava.vscode-java-pack",
+					"vaadin.vaadin-vscode",
+                    "vscodevim.vim"
+                ],
+        "settings": {
+				"java.configuration.updateBuildConfiguration": "automatic",
+				"java.compile.nullAnalysis.mode": "automatic"
+			}
+        }
+     } 
+
+     // Cache/share hte host .m2 and jetbrains jdk runtime (for less downloading...)
+	//"mounts": [
+	//	"source=${localEnv:HOME}/.m2,target=/home/vscode/.m2,type=bind,consistency=cached", 
+        // For the jetbrains (hotswap) runtime..
+		//"source=./jdk,target=/home/vscode/.vaadin/jdk,type=bind,consistency=cached", 
+	//], 
+}
